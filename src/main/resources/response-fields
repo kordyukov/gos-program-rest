@@ -1,0 +1,15 @@
+schemas/TestSpecification/properties/disableVideoRecording/type
+schemas/Shard/properties/shardIndex/type
+schemas/TestEnvironmentCatalog/properties/softwareCatalog/description
+resources/testEnvironmentCatalog/methods/get/scopes
+schemas/DeviceFile/properties/obbFile
+schemas/AndroidTestLoop/properties/scenarioLabels/items/type
+schemas/ApkManifest/properties/services/type
+schemas/NetworkConfiguration/properties/id/type
+schemas/DeviceIpBlockCatalog/properties/ipBlocks/items
+schemas/TestSpecification/properties/iosTestSetup/$ref
+schemas/TestExecution/properties/id
+resources/projects/resources/testMatrices/methods/create/parameters/projectId/description
+schemas/TestSetup/properties/dontAutograntPermissions/description
+schemas/Orientation/properties/name/description
+schemas/ApkManifest/properties/maxSdkVersion

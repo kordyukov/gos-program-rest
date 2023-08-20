@@ -1,0 +1,72 @@
+package ru.fors.gosprogramrest.model.dto.response;
+
+import lombok.Data;
+
+import java.util.ArrayList;
+
+@Data
+public class ChildsFlatList {
+    private TermFinal termFinal;
+    private Csr csr;
+    private ArrayList<Object> objects;
+    private int number;
+    private ExecutorEmployee executorEmployee;
+    private int lockMeta;
+    private int id;
+    private State state;
+    private ArrayList<Task> tasks;
+    private String versionType;
+    private ArrayList<Object> resultTasks;
+    private ArrayList<Indicator> indicators;
+    private ArrayList<Object> provisions;
+    private String approveDate;
+    private ArrayList<Object> targets;
+    private ArrayList<Object> muns;
+    private ArrayList<Object> participants;
+    private ArrayList<FinancesTotal> financesTotal;
+    private int contextYear;
+    private TermStart termStart;
+    private ArrayList<Object> texts;
+    private String versionUUID;
+    private ArrayList<Object> buys;
+    private ArrayList<Object> documents;
+    private String hierarchyId;
+    private String uuid;
+    private ArrayList<Object> points;
+    private ExecutorOffice executorOffice;
+    private ArrayList<LinkIndicator> linkIndicators;
+    private String nodeType;
+    private String creationDate;
+    private ArrayList<Object> directions;
+    private String lastChangeUser;
+    private String name;
+    private ArrayList<Finance> finances;
+    private String creationUser;
+    private ArrayList<Value> values;
+    private String hierarchyParentId;
+    private ArrayList<Object> legals;
+    private int orderHierarchy;
+    private Direction direction;
+    private String lastChangeDate;
+    private int versionNumber;
+    private ArrayList<Object> linkNationalTargetIndicators;
+    private ArrayList<Object> stages;
+    private String character;
+    private double valueCurrent10;
+    private double valueCurrent12;
+    private double valueCurrent11;
+    private String eventType;
+    private double valueCurrent6;
+    private double valueCurrent7;
+    private double valueCurrent4;
+    private double valueCurrent5;
+    private double valueCurrent2;
+    private double valueCurrent3;
+    private double valueCurrent1;
+    private double valueCurrent8;
+    private double valueCurrent9;
+    private Task task;
+    private Okei okei;
+    private boolean isMun;
+    private boolean isFinance;
+}

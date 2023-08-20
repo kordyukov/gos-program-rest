@@ -1,0 +1,4 @@
+
+info:
+  endpoint: https://bp-tst15.fm.epbs.ru/backdoor/exportGP
+file-request: config-request.yaml
