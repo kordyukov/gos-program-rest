@@ -13,7 +13,7 @@ public interface UpdateFieldsService {
 
     List<Requests> getKeysFromFile() throws IOException;
 
-    public List<String> getKeysFromFileByName(String fileName) throws IOException;
+    List<String> getKeysFromFileByName(String fileName) throws IOException;
 
     void saveToFile(Collection<?> keys, File file);
 }
