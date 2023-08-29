@@ -1,33 +1,43 @@
 package ru.fors.gosprogramrest.controller;
 
-import org.springframework.core.io.ClassPathResource;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
 import ru.fors.gosprogramrest.model.dto.Engine;
 import ru.fors.gosprogramrest.model.dto.Requests;
 import ru.fors.gosprogramrest.model.dto.RequestsDto;
+import ru.fors.gosprogramrest.service.UpdateFieldsService;
 
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
+@RequiredArgsConstructor
 public class AttributeController {
+    private final UpdateFieldsService updateFieldsService;
+    @Value("${file-response}")
+    private String fileResponse;
+
     @GetMapping("/checked")
     public String displayCheckboxForm(Model model) throws IOException {
         Engine engine = new Engine(true);
-        List<Requests> keys = Files.readAllLines(new ClassPathResource("/config-request.yaml")
-                        .getFile().toPath(), StandardCharsets.UTF_8)
-                .stream()
-                .map(Requests::new)
-                .toList();
-        List<Requests> requestsList = new ArrayList<>();
-        keys.iterator().forEachRemaining(requestsList::add);
-        model.addAttribute("form", new RequestsDto(requestsList));
-        return "index.html";
+        List<Requests> keys = updateFieldsService.getKeysFromFile();
+        RequestsDto requestsDto = new RequestsDto(keys);
+//        keys.iterator().forEachRemaining(requestsList::add);
+        model.addAttribute("allKeys", keys);
+        model.addAttribute("request", requestsDto);
+        return "checked.html";
+    }
+
+    @GetMapping("completed")
+    public List<String> getIndex(Model model) throws IOException {
+
+        List<String> keysFromFileByName = updateFieldsService.getKeysFromFileByName(fileResponse);
+        model.addAttribute("complete", keysFromFileByName);
+        return keysFromFileByName;
+
     }
 
 

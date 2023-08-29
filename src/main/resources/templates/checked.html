@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Установите нужные поля для ответа </title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<h1>Установите нужные поля от хост/v2/год</h1>
+<br/><br/>
+<div>
+    <form th:action="@{/requests/save}" th:object="${request}" method="post">
+        <table>
+                    <input type="checkbox" name="requests"
+                           th:each="req : ${allKeys}"
+                           th:text="${req.field}"
+                           th:value="${req.id}"
+                           th:field="*{requests}"
+                    />
+            <tr>
+                <td colspan="2"><input type="submit" value="Установить поля для ответа"/></td>
+            </tr>
+        </table>
+    </form>
+    <a th:href="@{/completed}">Установленные поля для хост/v2/год</a>
+</div>
+</body>
+</html>

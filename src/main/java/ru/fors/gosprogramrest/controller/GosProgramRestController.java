@@ -1,9 +1,8 @@
 package ru.fors.gosprogramrest.controller;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.core.io.ClassPathResource;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,11 +11,9 @@ import org.springframework.web.bind.annotation.RestController;
 import ru.fors.gosprogramrest.service.UpdateFieldsService;
 
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 @Slf4j
 @RestController
@@ -24,19 +21,25 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class GosProgramRestController {
     private final UpdateFieldsService updateFieldsService;
+    @Value("${file-response}")
+    private String fileResponse;
 
     @GetMapping("/v2/{year}")
     public ResponseEntity<String> getProgramAndFinanceList(@PathVariable("year") Integer year) throws IOException, ClassNotFoundException {
 
         Map<Object, Object> objectObjectMap = updateFieldsService.receivedFields(year);
 
-        List<String> keys = Files.readAllLines(new ClassPathResource("/response-fields")
-                .getFile().toPath(), StandardCharsets.UTF_8);
+        List<String> keysFromFileByName = updateFieldsService.getKeysFromFileByName(fileResponse);
 
-        Map<String, Object> result = keys.stream()
-                .collect(Collectors.toMap(key -> key, objectObjectMap::get, (a, b) -> b));
+        Map<Object, Object> response = new HashMap<>();
 
-        return ResponseEntity.ok(new ObjectMapper().writeValueAsString(result));
+        objectObjectMap.keySet().forEach(key -> {
+            for (String responseField : keysFromFileByName) {
+                if (key.equals(responseField)) response.put(key, objectObjectMap.get(key));
+            }
+        });
+
+        return ResponseEntity.ok(response.toString());
     }
 
 }

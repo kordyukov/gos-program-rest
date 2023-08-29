@@ -1,36 +1,40 @@
 package ru.fors.gosprogramrest.service;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.JsonNodeType;
-import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import com.github.jknack.handlebars.internal.Files;
-import lombok.RequiredArgsConstructor;
 import org.apache.commons.io.FileUtils;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.ClassPathResource;
-import org.springframework.http.HttpEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-import ru.fors.gosprogramrest.model.dto.request.ServerRequest;
+import ru.fors.gosprogramrest.model.dto.Requests;
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 @Service
-@RequiredArgsConstructor
 public class UpdateFieldsServiceImpl implements UpdateFieldsService {
     private final RestTemplate restTemplate;
     private final ObjectMapper objectMapper;
-    private final File file;
+    private final File fileRequest;
     @Value("${info.endpoint}")
     private String url;
+    @Value("${file-request}")
+    private String fileRead;
+
+    public UpdateFieldsServiceImpl(RestTemplate restTemplate,
+                                   ObjectMapper objectMapper,
+                                   @Qualifier("fileRequest") File fileRequest) {
+        this.restTemplate = restTemplate;
+        this.objectMapper = objectMapper;
+        this.fileRequest = fileRequest;
+    }
+
 
     private static void traverse(JsonNode node, int level, Map<Object, Object> map, Map<Integer, String> keyBuilder) {
         if (node.getNodeType() == JsonNodeType.ARRAY) {
@@ -81,8 +85,6 @@ public class UpdateFieldsServiceImpl implements UpdateFieldsService {
 
     private static void printNode(JsonNode node, String keyName, int level, Map<Object, Object> map, Map<Integer, String> keyBuilder) {
         if (traversable(node)) {
-//            System.out.printf("%" + (level * 4 - 3) + "s|-- %s=%s type=%s%n",
-//                    "", keyName, node, node.getNodeType());
             keyBuilder.put(level, keyName);
 
             builderKeys(keyBuilder, level, keyName, map, node);
@@ -94,17 +96,13 @@ public class UpdateFieldsServiceImpl implements UpdateFieldsService {
             } else if (node.isNumber()) {
                 value = node.numberValue();
             }//todo add more types
-//            System.out.printf("%" + (level * 4 - 3) + "s|-- %s=%s type=%s%n",
-//                    "", keyName, value, node.getNodeType());
             builderKeys(keyBuilder, level, keyName, map, node);
         }
     }
 
     @Override
     public Map<Object, Object> receivedFields(Integer year) throws IOException {
-//                HttpEntity<ServerRequest> request = new HttpEntity<>(new ServerRequest(year, 1));
-//        String read = restTemplate.postForObject(url, request, String.class);
-//
+
         String read = Files.read(new ClassPathResource("/test.json")
                 .getFile(), StandardCharsets.UTF_8);
 
@@ -112,22 +110,33 @@ public class UpdateFieldsServiceImpl implements UpdateFieldsService {
         Map<Object, Object> map = new HashMap<>();
         Map<Integer, String> keyBuilder = new LinkedHashMap<>();
         traverse(actualObj, 1, map, keyBuilder);
-        saveToFile(map.keySet());
+        saveToFile(map.keySet(), fileRequest);
         return map;
     }
 
-    public void saveToFile(Set<Object> keys) {
+    @Override
+    public List<Requests> getKeysFromFile() throws IOException {
+        return java.nio.file.Files.readAllLines(new ClassPathResource(fileRead)
+                        .getFile().toPath(), StandardCharsets.UTF_8)
+                .stream()
+                .map(Requests::new)
+                .toList();
+    }
+
+    @Override
+    public List<String> getKeysFromFileByName(String fileName) throws IOException {
+        return java.nio.file.Files.readAllLines(new ClassPathResource(fileName)
+                        .getFile().toPath(), StandardCharsets.UTF_8)
+                .stream()
+                .toList();
+    }
+
+    @Override
+    public void saveToFile(Collection<?> keys, File file) {
         try {
             FileUtils.writeLines(file, keys);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-    }
-
-    String convertYamlToJson(String yaml) throws JsonProcessingException {
-        ObjectMapper yamlReader = new ObjectMapper(new YAMLFactory());
-        Object obj = yamlReader.readValue(yaml, Object.class);
-        ObjectMapper jsonWriter = new ObjectMapper();
-        return jsonWriter.writeValueAsString(obj);
     }
 }

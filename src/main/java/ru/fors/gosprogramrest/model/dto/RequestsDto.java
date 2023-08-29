@@ -1,19 +1,22 @@
 package ru.fors.gosprogramrest.model.dto;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.util.List;
+import java.util.stream.IntStream;
 
 @Data
 public class RequestsDto {
-    private List<Requests> requestsList;
+    private List<Requests> requests;
 
-    public void addRequests(Requests requests) {
-        requestsList.add(requests);
+    public RequestsDto(List<Requests> keys) {
+        if (keys != null) {
+            IntStream.range(0, keys.size()).forEach(i -> keys.get(i).setId(i));
+        }
+        this.requests = keys;
     }
 
-    public RequestsDto(List<Requests> requestsList) {
-        this.requestsList = requestsList;
+    public void addRequests(Requests requests) {
+        this.requests.add(requests);
     }
 }

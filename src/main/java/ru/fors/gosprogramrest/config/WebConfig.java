@@ -9,13 +9,14 @@ import org.springframework.web.client.RestTemplate;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.URISyntaxException;
 
 @Slf4j
 @Configuration
 public class WebConfig {
     @Value("${file-request}")
     private String fileRequest;
+    @Value("${file-response}")
+    private String fileResponse;
 
     @Bean
     public RestTemplate restTemplate() {
@@ -27,15 +28,24 @@ public class WebConfig {
         return new ObjectMapper();
     }
 
-    @Bean
-    public File file() throws URISyntaxException, IOException {
-        String uri = this.getClass().getClassLoader().getResource(".").getFile() + fileRequest;
+    @Bean("fileRequest")
+    public File fileRequest() throws IOException {
+        return getFileForName(fileRequest);
+    }
+
+    private File getFileForName(String fileName) throws IOException {
+        String uri = this.getClass().getClassLoader().getResource(".").getFile() + fileName;
         File file = new File(uri);
         if (file.createNewFile()) {
-            log.info("File: {} is created!", uri);
+            log.info("File: {}, uri: {} is created!", fileName, uri);
         } else {
-            log.info("File: {} already exists.", uri);
+            log.info("File: {}, uri: {} already exists.", fileName, uri);
         }
         return file;
+    }
+
+    @Bean("fileResponse")
+    public File fileResponse() throws IOException {
+        return getFileForName(fileResponse);
     }
 }

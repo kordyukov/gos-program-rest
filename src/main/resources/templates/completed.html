@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Field List</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<h1>Установка нужных полей для ответа</h1>
+<a th:href="@{/checked}">Установить новые поля для ответа </a>
+<br/><br/>
+<div>
+    <label>Установленные поля для ответа хост/v2/год :</label>
+        <table border="1">
+            <tr th:each="req: ${complete}">
+                <td th:text="${req}">Oranges</td>
+            </tr>
+        </table>
+</div>
+</body>
+</html>
