@@ -102,9 +102,9 @@ public class UpdateFieldsServiceImpl implements UpdateFieldsService {
 
     @Override
     public Map<Object, Object> receivedFields(Integer year) throws IOException {
-
-        String read = Files.read(new ClassPathResource("/test.json")
-                .getFile(), StandardCharsets.UTF_8);
+        String read = restTemplate.getForObject("https://nsddata.ru/api/get/news?limit=10&apikey=DEMO", String.class);
+//        String read = Files.read(new ClassPathResource("/test.json")
+//                .getFile(), StandardCharsets.UTF_8);
 
         JsonNode actualObj = objectMapper.readTree(read);
         Map<Object, Object> map = new HashMap<>();

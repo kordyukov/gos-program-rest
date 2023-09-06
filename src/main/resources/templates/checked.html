@@ -11,12 +11,14 @@
 <div>
     <form th:action="@{/requests/save}" th:object="${request}" method="post">
         <table>
+            <label th:each="req : ${allKeys}">
                     <input type="checkbox" name="requests"
-                           th:each="req : ${allKeys}"
                            th:text="${req.field}"
                            th:value="${req.id}"
                            th:field="*{requests}"
                     />
+                <br/>
+            </label>
             <tr>
                 <td colspan="2"><input type="submit" value="Установить поля для ответа"/></td>
             </tr>
