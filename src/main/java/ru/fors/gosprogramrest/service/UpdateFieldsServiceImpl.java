@@ -3,14 +3,13 @@ package ru.fors.gosprogramrest.service;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.JsonNodeType;
-import com.github.jknack.handlebars.internal.Files;
 import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-import ru.fors.gosprogramrest.model.dto.Requests;
+import ru.fors.gosprogramrest.model.dto.request.Requests;
 
 import java.io.File;
 import java.io.IOException;
@@ -50,7 +49,6 @@ public class UpdateFieldsServiceImpl implements UpdateFieldsService {
         node.fieldNames().forEachRemaining((String fieldName) -> {
             JsonNode childNode = node.get(fieldName);
             printNode(childNode, fieldName, level, map, keyBuilder);
-            //for nested object or arrays
             if (traversable(childNode)) {
                 traverse(childNode, level + 1, map, keyBuilder);
             }
@@ -95,14 +93,14 @@ public class UpdateFieldsServiceImpl implements UpdateFieldsService {
                 value = node.textValue();
             } else if (node.isNumber()) {
                 value = node.numberValue();
-            }//todo add more types
+            }
             builderKeys(keyBuilder, level, keyName, map, node);
         }
     }
 
     @Override
     public Map<Object, Object> receivedFields(Integer year) throws IOException {
-        String read = restTemplate.getForObject("https://nsddata.ru/api/get/news?limit=10&apikey=DEMO", String.class);
+        String read = restTemplate.getForObject(url, String.class);
 //        String read = Files.read(new ClassPathResource("/test.json")
 //                .getFile(), StandardCharsets.UTF_8);
 

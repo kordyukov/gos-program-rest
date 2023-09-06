@@ -1,4 +1,4 @@
-package ru.fors.gosprogramrest.model.dto;
+package ru.fors.gosprogramrest.model.dto.request;
 
 import lombok.Data;
 
@@ -14,9 +14,5 @@ public class RequestsDto {
             IntStream.range(0, keys.size()).forEach(i -> keys.get(i).setId(i));
         }
         this.requests = keys;
-    }
-
-    public void addRequests(Requests requests) {
-        this.requests.add(requests);
     }
 }

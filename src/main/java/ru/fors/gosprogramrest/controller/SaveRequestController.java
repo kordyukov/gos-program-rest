@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import ru.fors.gosprogramrest.model.dto.Requests;
-import ru.fors.gosprogramrest.model.dto.RequestsDto;
+import ru.fors.gosprogramrest.model.dto.request.Requests;
+import ru.fors.gosprogramrest.model.dto.request.RequestsDto;
 import ru.fors.gosprogramrest.service.UpdateFieldsService;
 
 import java.io.File;
@@ -36,9 +36,7 @@ public class SaveRequestController {
 
         List<Requests> keysFromFile = updateFieldsService.getKeysFromFile();
 
-        ids.forEach(id -> {
-            result.add(keysFromFile.get(id).getField());
-        });
+        ids.forEach(id -> result.add(keysFromFile.get(id).getField()));
 
         updateFieldsService.saveToFile(result, fileResponse);
 

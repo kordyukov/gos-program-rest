@@ -1,6 +1,6 @@
 package ru.fors.gosprogramrest.service;
 
-import ru.fors.gosprogramrest.model.dto.Requests;
+import ru.fors.gosprogramrest.model.dto.request.Requests;
 
 import java.io.File;
 import java.io.IOException;

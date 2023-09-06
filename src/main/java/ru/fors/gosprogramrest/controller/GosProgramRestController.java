@@ -1,6 +1,5 @@
 package ru.fors.gosprogramrest.controller;
 
-import com.google.gson.JsonObject;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import net.minidev.json.JSONObject;
@@ -29,7 +28,7 @@ public class GosProgramRestController {
     private String fileResponse;
 
     @GetMapping("/v2/{year}")
-    public ResponseEntity<JSONObject> getProgramAndFinanceList(@PathVariable("year") Integer year) throws IOException, ClassNotFoundException {
+    public ResponseEntity<JSONObject> getProgramAndFinanceList(@PathVariable("year") Integer year) throws IOException {
 
         Map<Object, Object> objectObjectMap = updateFieldsService.receivedFields(year);
 

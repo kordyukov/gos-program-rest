@@ -1,4 +1,4 @@
-package ru.fors.gosprogramrest.model.dto;
+package ru.fors.gosprogramrest.model.dto.request;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

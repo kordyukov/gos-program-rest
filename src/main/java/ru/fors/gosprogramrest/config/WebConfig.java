@@ -9,6 +9,7 @@ import org.springframework.web.client.RestTemplate;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Objects;
 
 @Slf4j
 @Configuration
@@ -34,7 +35,7 @@ public class WebConfig {
     }
 
     private File getFileForName(String fileName) throws IOException {
-        String uri = this.getClass().getClassLoader().getResource(".").getFile() + fileName;
+        String uri = Objects.requireNonNull(this.getClass().getClassLoader().getResource(".")).getFile() + fileName;
         File file = new File(uri);
         if (file.createNewFile()) {
             log.info("File: {}, uri: {} is created!", fileName, uri);

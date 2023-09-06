@@ -1,5 +1,5 @@
 
 info:
-  endpoint: https://bp-tst15.fm.epbs.ru/backdoor/exportGP
+  endpoint: https://nsddata.ru/api/get/news?limit=10&apikey=DEMO
 file-request: config-request.yaml
 file-response: response-fields

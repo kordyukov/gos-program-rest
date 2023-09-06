@@ -5,9 +5,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import ru.fors.gosprogramrest.model.dto.Engine;
-import ru.fors.gosprogramrest.model.dto.Requests;
-import ru.fors.gosprogramrest.model.dto.RequestsDto;
+import ru.fors.gosprogramrest.model.dto.request.Requests;
+import ru.fors.gosprogramrest.model.dto.request.RequestsDto;
 import ru.fors.gosprogramrest.service.UpdateFieldsService;
 
 import java.io.IOException;
@@ -22,10 +21,8 @@ public class AttributeController {
 
     @GetMapping("/checked")
     public String displayCheckboxForm(Model model) throws IOException {
-        Engine engine = new Engine(true);
         List<Requests> keys = updateFieldsService.getKeysFromFile();
         RequestsDto requestsDto = new RequestsDto(keys);
-//        keys.iterator().forEachRemaining(requestsList::add);
         model.addAttribute("allKeys", keys);
         model.addAttribute("request", requestsDto);
         return "checked.html";
