@@ -59,7 +59,7 @@ public class UpdateFieldsServiceImpl implements UpdateFieldsService {
 
     private static void traverseArray(JsonNode node, int level, Map<Object, Object> map, Map<Integer, String> keyBuilder) {
         for (JsonNode jsonArrayNode : node) {
-            printNode(jsonArrayNode, "arrayElement", level, map, keyBuilder);
+            printNode(jsonArrayNode, "--Корневой узел--", level, map, keyBuilder);
             if (traversable(jsonArrayNode)) {
                 traverse(jsonArrayNode, level + 1, map, keyBuilder);
             }
