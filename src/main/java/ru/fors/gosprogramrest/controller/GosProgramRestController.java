@@ -34,7 +34,7 @@ public class GosProgramRestController {
 
         List<String> keysFromFileByName = updateFieldsService.getKeysFromFileByName(fileResponse);
 
-        List<Map<String, Object>> response = new ArrayList();
+        List<Map<String, Object>> response = new ArrayList<>();
 
         for (Map<Object, Object> objectObjectMap1 : objectObjectMap) {
             Map<String, Object> map = new HashMap<>();
