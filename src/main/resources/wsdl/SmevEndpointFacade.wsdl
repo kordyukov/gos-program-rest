@@ -1,665 +1,690 @@
-<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://fors.com/smev3/exchange/facade/v1.0" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="SmevEndpointFacadeWsService" targetNamespace="http://fors.com/smev3/exchange/facade/v1.0">
-  <wsdl:types>
-<xs:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://fors.com/smev3/exchange/facade/v1.0" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" xmlns="http://voskhod.ru/transaction-marker" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://voskhod.ru/transaction-marker">
-  
-  <xs:complexType name="FRGUInformation">
-    
-    <xs:sequence>
-      
-      <xs:element name="FRGUInteractionPartisipantCode" type="xs:string"/>
-      
-      <xs:element name="FRGUServiceCode" type="xs:string"/>
-      
-      <xs:element name="FRGUServiceDescription" type="xs:string"/>
-      
-      <xs:element name="FRGUServiceRecipientDescription" type="xs:string"/>
-    
-    </xs:sequence>
-  
-  </xs:complexType>
-  
-  <xs:complexType name="marker">
-    
-    <xs:sequence>
-      
-      <xs:element name="TransactionUUID" type="xs:string"/>
-      
-      <xs:element name="TransactionCode" type="xs:string"/>
-    
-    </xs:sequence>
-  
-  </xs:complexType>
+<?xml version='1.0' encoding='UTF-8'?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:tns="http://fors.com/smev3/exchange/facade/v1.0"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http"
+                  name="SmevEndpointFacadeWsService" targetNamespace="http://fors.com/smev3/exchange/facade/v1.0">
+    <wsdl:types>
+        <xs:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                   xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://fors.com/smev3/exchange/facade/v1.0"
+                   xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http"
+                   xmlns="http://voskhod.ru/transaction-marker" attributeFormDefault="unqualified"
+                   elementFormDefault="unqualified" targetNamespace="http://voskhod.ru/transaction-marker">
 
-</xs:schema>
-<xs:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://fors.com/smev3/exchange/facade/v1.0" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://voskhod.ru/transaction-marker" xmlns:ns0="http://endpoints.transactionmarker.voskhod.ru/" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://fors.com/smev3/exchange/facade/v1.0">
-  
-  <xs:element name="CheckIncomingRequests" type="tns:CheckIncomingRequests"/>
-  
-  <xs:element name="CheckIncomingRequestsResponse" type="tns:CheckIncomingRequestsResponse"/>
-  
-  <xs:element name="CheckRequestResponses" type="tns:CheckRequestResponses"/>
-  
-  <xs:element name="CheckRequestResponsesResponse" type="tns:CheckRequestResponsesResponse"/>
-  
-  <xs:element name="GenerateMarkRequest" type="tns:generateMarkRequest"/>
-  
-  <xs:element name="RedeliverConsumerResponse" type="tns:RedeliverConsumerResponse"/>
-  
-  <xs:element name="RedeliverConsumerResponseResponse" type="tns:RedeliverConsumerResponseResponse"/>
-  
-  <xs:element name="RedeliverSupplierRequest" type="tns:RedeliverSupplierRequest"/>
-  
-  <xs:element name="RedeliverSupplierRequestResponse" type="tns:RedeliverSupplierRequestResponse"/>
-  
-  <xs:element name="SendRequestRequest" type="tns:sendRequestRequest"/>
-  
-  <xs:element name="SendRequestResponse" type="tns:smevEndpointFacadeWsResponse"/>
-  
-  <xs:element name="SendResponseRequest" type="tns:sendResponseRequest"/>
-  
-  <xs:element name="SendResponseRequestRejectedRequest" type="tns:sendResponseRequestRejectedRequest"/>
-  
-  <xs:element name="SendResponseRequestStatusRequest">
-    
-    <xs:complexType>
-      
-      <xs:sequence>
-        
-        <xs:element name="OriginalMessageId" type="xs:string"/>
-        
-        <xs:element name="StatusCode" type="xs:int"/>
-        
-        <xs:element maxOccurs="unbounded" minOccurs="0" name="StatusParameter" type="tns:RequestStatusParameterType"/>
-        
-        <xs:element name="StatusDescription" type="xs:string"/>
-      
-      </xs:sequence>
-    
-    </xs:complexType>
-  
-  </xs:element>
-  
-  <xs:complexType name="CheckRequestResponses">
-    
-    <xs:sequence/>
-  
-  </xs:complexType>
-  
-  <xs:complexType name="CheckRequestResponsesResponse">
-    
-    <xs:sequence/>
-  
-  </xs:complexType>
-  
-  <xs:complexType name="RedeliverSupplierRequest">
-    
-    <xs:sequence>
-      
-      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
-    
-    </xs:sequence>
-  
-  </xs:complexType>
-  
-  <xs:complexType name="RedeliverSupplierRequestResponse">
-    
-    <xs:sequence/>
-  
-  </xs:complexType>
-  
-  <xs:complexType name="sendRequestRequest">
-    
-    <xs:sequence>
-      
-      <xs:element name="EndpointCode" type="xs:string"/>
-      
-      <xs:element minOccurs="0" name="EndSystemCode" type="xs:string"/>
-      
-      <xs:element minOccurs="0" name="IsTest" type="xs:boolean"/>
-      
-      <xs:element minOccurs="0" name="TransactionCode" type="xs:string"/>
-      
-      <xs:element minOccurs="0" name="ReferenceMessageId" type="xs:string"/>
-      
-      <xs:element minOccurs="0" name="EOL" type="xs:dateTime"/>
-      
-      <xs:element name="Data" type="tns:data"/>
-      
-      <xs:element minOccurs="0" name="PersonalSignature" type="tns:data"/>
-      
-      <xs:element maxOccurs="unbounded" minOccurs="0" name="Attachment" type="tns:wsOutboundAttachmentType"/>
-      
-      <xs:element maxOccurs="unbounded" minOccurs="0" name="SendingOption" type="tns:SendingOptionType"/>
-    
-    </xs:sequence>
-  
-  </xs:complexType>
+            <xs:complexType name="FRGUInformation">
 
-  
-  <xsd:complexType name="SendingOptionType">
-    
-    <xsd:annotation>
-      
-      <xsd:documentation>
-        Опции отправки в СМЭВ 3
-      </xsd:documentation>
-    
-    </xsd:annotation>
-    
-    <xsd:simpleContent>
-      
-      <xsd:extension base="xsd:string">
-        
-        <xsd:attribute name="name" type="xsd:string">
-          
-          <xsd:annotation>
-            
-            <xsd:documentation>Наименование опции</xsd:documentation>
-          
-          </xsd:annotation>
-        
-        </xsd:attribute>
-      
-      </xsd:extension>
-    
-    </xsd:simpleContent>
-  
-  </xsd:complexType>
+                <xs:sequence>
 
-  
-  <xs:complexType name="data">
-    
-    <xs:sequence>
-      
-      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
-    
-    </xs:sequence>
-  
-  </xs:complexType>
-  
-  <xs:complexType name="wsOutboundAttachmentType">
-    
-    <xs:sequence>
-      
-      <xs:element minOccurs="0" name="ExternalContentId" type="xs:string"/>
-      
-      <xs:element minOccurs="0" name="AttachmentId" type="xs:string"/>
-      
-      <xs:element name="FileName" type="xs:string"/>
-      
-      <xs:element name="MimeType" type="xs:string"/>
-      
-      <xs:element minOccurs="0" name="Signature" type="xs:base64Binary"/>
-      
-      <xs:element minOccurs="0" name="Digest" type="xs:base64Binary"/>
-      
-      <xs:element minOccurs="0" name="Content" type="xs:base64Binary"/>
-    
-    </xs:sequence>
-  
-  </xs:complexType>
-  
-  <xs:complexType name="smevEndpointFacadeWsResponse">
-    
-    <xs:sequence>
-      
-      <xs:element minOccurs="0" name="messageId" type="xs:string"/>
-    
-    </xs:sequence>
-  
-  </xs:complexType>
-  
-  <xs:complexType name="sendResponseRequestRejectedRequest">
-    
-    <xs:sequence>
-      
-      <xs:element name="OriginalMessageId" type="xs:string"/>
-      
-      <xs:element name="RequestRejected" type="tns:requestRejected"/>
-    
-    </xs:sequence>
-  
-  </xs:complexType>
-  
-  <xs:complexType name="requestRejected">
-    
-    <xs:sequence>
-      
-      <xs:element name="RejectionReasonCode" type="tns:rejectCodeEnum"/>
-      
-      <xs:element name="RejectionReasonDescription" type="xs:string"/>
-    
-    </xs:sequence>
-  
-  </xs:complexType>
-  
-  <xs:complexType name="CheckIncomingRequests">
-    
-    <xs:sequence/>
-  
-  </xs:complexType>
-  
-  <xs:complexType name="CheckIncomingRequestsResponse">
-    
-    <xs:sequence/>
-  
-  </xs:complexType>
-  
-  <xs:complexType name="getAttachmentsInfoRequest">
-    
-    <xs:sequence>
-      
-      <xs:element form="qualified" minOccurs="0" name="messageId" type="xs:string"/>
-    
-    </xs:sequence>
-  
-  </xs:complexType>
-  
-  <xs:complexType name="getAttachmentsInfoResult">
-    
-    <xs:sequence>
-      
-      <xs:element form="qualified" maxOccurs="unbounded" minOccurs="0" name="MessageAttachmentInfo">
-        
-        <xs:complexType>
-          
-          <xs:sequence>
-            
-            <xs:element form="qualified" minOccurs="0" name="id" type="xs:string"/>
-            
-            <xs:element form="qualified" minOccurs="0" name="attachmentId" type="xs:string"/>
-            
-            <xs:element form="qualified" minOccurs="0" name="mimeType" type="xs:string"/>
-            
-            <xs:element form="qualified" minOccurs="0" name="fileName" type="xs:string"/>
-          
-          </xs:sequence>
-        
-        </xs:complexType>
-      
-      </xs:element>
-    
-    </xs:sequence>
-  
-  </xs:complexType>
-  
-  <xs:complexType name="RedeliverConsumerResponse">
-    
-    <xs:sequence>
-      
-      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
-    
-    </xs:sequence>
-  
-  </xs:complexType>
-  
-  <xs:complexType name="RedeliverConsumerResponseResponse">
-    
-    <xs:sequence/>
-  
-  </xs:complexType>
-  
-  <xs:complexType name="RequestStatusParameterType">
-    
-    <xs:sequence>
-      
-      <xs:element name="Key" type="xs:string"/>
-      
-      <xs:element name="Value" nillable="true" type="xs:string"/>
-    
-    </xs:sequence>
-  
-  </xs:complexType>
-  
-  <xs:complexType name="generateMarkRequest">
-    
-    <xs:sequence>
-      
-      <xs:element name="EndpointCode" type="xs:string"/>
-      
-      <xs:element name="FRGUInformation" type="ns1:FRGUInformation"/>
-    
-    </xs:sequence>
-  
-  </xs:complexType>
-  
-  <xs:complexType name="sendResponseRequest">
-    
-    <xs:sequence>
-      
-      <xs:element name="OriginalMessageId" type="xs:string"/>
-      
-      <xs:element name="Data" type="tns:data"/>
-      
-      <xs:element maxOccurs="unbounded" minOccurs="0" name="Attachment" type="tns:wsOutboundAttachmentType"/>
-      
-      <xs:element maxOccurs="unbounded" minOccurs="0" name="SendingOption" type="tns:SendingOptionType"/>
-    
-    </xs:sequence>
-  
-  </xs:complexType>
-  
-  <xs:simpleType name="rejectCodeEnum">
-    
-    <xs:restriction base="xs:string">
-      
-      <xs:enumeration value="ACCESS_DENIED"/>
-      
-      <xs:enumeration value="NO_DATA"/>
-      
-      <xs:enumeration value="UNKNOWN_REQUEST_DESCRIPTION"/>
-      
-      <xs:enumeration value="FAILURE"/>
-    
-    </xs:restriction>
-  
-  </xs:simpleType>
-  
-  <xs:element name="SendRequest" nillable="true" type="tns:sendRequestRequest"/>
-  
-  <xs:element name="SendResponseRequestRejected" nillable="true" type="tns:sendResponseRequestRejectedRequest"/>
-  
-  <xs:element name="SendResponseResponse" nillable="true" type="tns:smevEndpointFacadeWsResponse"/>
-  
-  <xs:element name="GetSupplierRequestAttachmentsInfo" nillable="true" type="tns:getAttachmentsInfoRequest"/>
-  
-  <xs:element name="GetSupplierRequestAttachmentsInfoResponse" nillable="true" type="tns:getAttachmentsInfoResult"/>
-  
-  <xs:element name="SendResponseRequestStatus" nillable="true">
-    
-    <xs:complexType>
-      
-      <xs:sequence>
-        
-        <xs:element name="OriginalMessageId" type="xs:string"/>
-        
-        <xs:element name="StatusCode" type="xs:int"/>
-        
-        <xs:element maxOccurs="unbounded" minOccurs="0" name="StatusParameter" type="tns:RequestStatusParameterType"/>
-        
-        <xs:element name="StatusDescription" type="xs:string"/>
-      
-      </xs:sequence>
-    
-    </xs:complexType>
-  
-  </xs:element>
-  
-  <xs:element name="GenerateMark" nillable="true" type="tns:generateMarkRequest"/>
-  
-  <xs:element name="generateMarkResponse" nillable="true" type="ns0:generateMarkResponse"/>
-  
-  <xs:element name="SendResponse" nillable="true" type="tns:sendResponseRequest"/>
+                    <xs:element name="FRGUInteractionPartisipantCode" type="xs:string"/>
 
-</xs:schema>
-<xs:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://endpoints.transactionmarker.voskhod.ru/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://voskhod.ru/transaction-marker" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://endpoints.transactionmarker.voskhod.ru/">
-  
-  <xs:element name="frguInformation" type="ns1:FRGUInformation"/>
-  
-  <xs:element name="generateMark" type="tns:generateMark"/>
-  
-  <xs:element name="generateMarkResponse" type="tns:generateMarkResponse"/>
-  
-  <xs:complexType name="generateMark">
-    
-    <xs:sequence>
-      
-      <xs:element name="FRGUInformation" type="ns1:FRGUInformation"/>
-    
-    </xs:sequence>
-  
-  </xs:complexType>
-  
-  <xs:complexType name="generateMarkResponse">
-    
-    <xs:sequence>
-      
-      <xs:element minOccurs="0" name="return" type="ns1:marker"/>
-    
-    </xs:sequence>
-  
-  </xs:complexType>
+                    <xs:element name="FRGUServiceCode" type="xs:string"/>
 
-</xs:schema>
-  </wsdl:types>
-  <wsdl:message name="SendResponseRequestStatusResponse">
-    <wsdl:part element="tns:SendResponseResponse" name="SendResponseResponse">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="RedeliverSupplierRequest">
-    <wsdl:part element="tns:RedeliverSupplierRequest" name="parameters">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="GenerateMarkResponse">
-    <wsdl:part element="tns:generateMarkResponse" name="generateMarkResponse">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="CheckRequestResponsesResponse">
-    <wsdl:part element="tns:CheckRequestResponsesResponse" name="parameters">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="RedeliverConsumerResponseResponse">
-    <wsdl:part element="tns:RedeliverConsumerResponseResponse" name="parameters">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="SendRequest">
-    <wsdl:part element="tns:SendRequest" name="SendRequest">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="CheckIncomingRequests">
-    <wsdl:part element="tns:CheckIncomingRequests" name="parameters">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="RedeliverConsumerResponse">
-    <wsdl:part element="tns:RedeliverConsumerResponse" name="parameters">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="RedeliverSupplierRequestResponse">
-    <wsdl:part element="tns:RedeliverSupplierRequestResponse" name="parameters">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="SendResponse">
-    <wsdl:part element="tns:SendResponse" name="SendResponse">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="SendResponseResponse">
-    <wsdl:part element="tns:SendResponseResponse" name="SendResponseResponse">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="CheckRequestResponses">
-    <wsdl:part element="tns:CheckRequestResponses" name="parameters">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="SendResponseRequestRejectedResponse">
-    <wsdl:part element="tns:SendResponseResponse" name="SendResponseResponse">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="GetSupplierRequestAttachmentsInfoResponse">
-    <wsdl:part element="tns:GetSupplierRequestAttachmentsInfoResponse" name="GetSupplierRequestAttachmentsInfoResponse">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="CheckIncomingRequestsResponse">
-    <wsdl:part element="tns:CheckIncomingRequestsResponse" name="parameters">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="SendResponseRequestRejected">
-    <wsdl:part element="tns:SendResponseRequestRejected" name="SendResponseRequestRejected">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="GetSupplierRequestAttachmentsInfo">
-    <wsdl:part element="tns:GetSupplierRequestAttachmentsInfo" name="GetSupplierRequestAttachmentsInfo">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="SendResponseRequestStatus">
-    <wsdl:part element="tns:SendResponseRequestStatus" name="SendResponseRequestStatus">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="GenerateMark">
-    <wsdl:part element="tns:GenerateMark" name="GenerateMark">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="SendRequestResponse">
-    <wsdl:part element="tns:SendRequestResponse" name="SendRequestResponse">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:portType name="SmevEndpointFacadeWs">
-    <wsdl:operation name="CheckRequestResponses">
-      <wsdl:input message="tns:CheckRequestResponses" name="CheckRequestResponses">
-    </wsdl:input>
-      <wsdl:output message="tns:CheckRequestResponsesResponse" name="CheckRequestResponsesResponse">
-    </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="RedeliverSupplierRequest">
-      <wsdl:input message="tns:RedeliverSupplierRequest" name="RedeliverSupplierRequest">
-    </wsdl:input>
-      <wsdl:output message="tns:RedeliverSupplierRequestResponse" name="RedeliverSupplierRequestResponse">
-    </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="SendRequest">
-      <wsdl:input message="tns:SendRequest" name="SendRequest">
-    </wsdl:input>
-      <wsdl:output message="tns:SendRequestResponse" name="SendRequestResponse">
-    </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="SendResponseRequestRejected">
-      <wsdl:input message="tns:SendResponseRequestRejected" name="SendResponseRequestRejected">
-    </wsdl:input>
-      <wsdl:output message="tns:SendResponseRequestRejectedResponse" name="SendResponseRequestRejectedResponse">
-    </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="CheckIncomingRequests">
-      <wsdl:input message="tns:CheckIncomingRequests" name="CheckIncomingRequests">
-    </wsdl:input>
-      <wsdl:output message="tns:CheckIncomingRequestsResponse" name="CheckIncomingRequestsResponse">
-    </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetSupplierRequestAttachmentsInfo">
-      <wsdl:input message="tns:GetSupplierRequestAttachmentsInfo" name="GetSupplierRequestAttachmentsInfo">
-    </wsdl:input>
-      <wsdl:output message="tns:GetSupplierRequestAttachmentsInfoResponse" name="GetSupplierRequestAttachmentsInfoResponse">
-    </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="RedeliverConsumerResponse">
-      <wsdl:input message="tns:RedeliverConsumerResponse" name="RedeliverConsumerResponse">
-    </wsdl:input>
-      <wsdl:output message="tns:RedeliverConsumerResponseResponse" name="RedeliverConsumerResponseResponse">
-    </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="SendResponseRequestStatus">
-      <wsdl:input message="tns:SendResponseRequestStatus" name="SendResponseRequestStatus">
-    </wsdl:input>
-      <wsdl:output message="tns:SendResponseRequestStatusResponse" name="SendResponseRequestStatusResponse">
-    </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GenerateMark">
-      <wsdl:input message="tns:GenerateMark" name="GenerateMark">
-    </wsdl:input>
-      <wsdl:output message="tns:GenerateMarkResponse" name="GenerateMarkResponse">
-    </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="SendResponse">
-      <wsdl:input message="tns:SendResponse" name="SendResponse">
-    </wsdl:input>
-      <wsdl:output message="tns:SendResponseResponse" name="SendResponseResponse">
-    </wsdl:output>
-    </wsdl:operation>
-  </wsdl:portType>
-  <wsdl:binding name="SmevEndpointFacadeWsServiceSoapBinding" type="tns:SmevEndpointFacadeWs">
-    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
-    <wsdl:operation name="CheckRequestResponses">
-      <soap:operation soapAction="" style="document"/>
-      <wsdl:input name="CheckRequestResponses">
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output name="CheckRequestResponsesResponse">
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="RedeliverSupplierRequest">
-      <soap:operation soapAction="" style="document"/>
-      <wsdl:input name="RedeliverSupplierRequest">
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output name="RedeliverSupplierRequestResponse">
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="SendRequest">
-      <soap:operation soapAction="" style="document"/>
-      <wsdl:input name="SendRequest">
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output name="SendRequestResponse">
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="SendResponseRequestRejected">
-      <soap:operation soapAction="" style="document"/>
-      <wsdl:input name="SendResponseRequestRejected">
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output name="SendResponseRequestRejectedResponse">
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="CheckIncomingRequests">
-      <soap:operation soapAction="" style="document"/>
-      <wsdl:input name="CheckIncomingRequests">
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output name="CheckIncomingRequestsResponse">
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetSupplierRequestAttachmentsInfo">
-      <soap:operation soapAction="" style="document"/>
-      <wsdl:input name="GetSupplierRequestAttachmentsInfo">
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output name="GetSupplierRequestAttachmentsInfoResponse">
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="RedeliverConsumerResponse">
-      <soap:operation soapAction="" style="document"/>
-      <wsdl:input name="RedeliverConsumerResponse">
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output name="RedeliverConsumerResponseResponse">
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="SendResponseRequestStatus">
-      <soap:operation soapAction="" style="document"/>
-      <wsdl:input name="SendResponseRequestStatus">
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output name="SendResponseRequestStatusResponse">
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GenerateMark">
-      <soap:operation soapAction="" style="document"/>
-      <wsdl:input name="GenerateMark">
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output name="GenerateMarkResponse">
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="SendResponse">
-      <soap:operation soapAction="" style="document"/>
-      <wsdl:input name="SendResponse">
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output name="SendResponseResponse">
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-  </wsdl:binding>
-  <wsdl:service name="SmevEndpointFacadeWsService">
-    <wsdl:port binding="tns:SmevEndpointFacadeWsServiceSoapBinding" name="SmevEndpointFacadeWsPort">
-      <soap:address location="http://hmao-esb.fors.ru:8880/SmevMessageExchangeWAR/services/SmevEndpointFacade"/>
-    </wsdl:port>
-  </wsdl:service>
+                    <xs:element name="FRGUServiceDescription" type="xs:string"/>
+
+                    <xs:element name="FRGUServiceRecipientDescription" type="xs:string"/>
+
+                </xs:sequence>
+
+            </xs:complexType>
+
+            <xs:complexType name="marker">
+
+                <xs:sequence>
+
+                    <xs:element name="TransactionUUID" type="xs:string"/>
+
+                    <xs:element name="TransactionCode" type="xs:string"/>
+
+                </xs:sequence>
+
+            </xs:complexType>
+
+        </xs:schema>
+        <xs:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                   xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://fors.com/smev3/exchange/facade/v1.0"
+                   xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://voskhod.ru/transaction-marker"
+                   xmlns:ns0="http://endpoints.transactionmarker.voskhod.ru/" attributeFormDefault="unqualified"
+                   elementFormDefault="unqualified" targetNamespace="http://fors.com/smev3/exchange/facade/v1.0">
+
+            <xs:element name="CheckIncomingRequests" type="tns:CheckIncomingRequests"/>
+
+            <xs:element name="CheckIncomingRequestsResponse" type="tns:CheckIncomingRequestsResponse"/>
+
+            <xs:element name="CheckRequestResponses" type="tns:CheckRequestResponses"/>
+
+            <xs:element name="CheckRequestResponsesResponse" type="tns:CheckRequestResponsesResponse"/>
+
+            <xs:element name="GenerateMarkRequest" type="tns:generateMarkRequest"/>
+
+            <xs:element name="RedeliverConsumerResponse" type="tns:RedeliverConsumerResponse"/>
+
+            <xs:element name="RedeliverConsumerResponseResponse" type="tns:RedeliverConsumerResponseResponse"/>
+
+            <xs:element name="RedeliverSupplierRequest" type="tns:RedeliverSupplierRequest"/>
+
+            <xs:element name="RedeliverSupplierRequestResponse" type="tns:RedeliverSupplierRequestResponse"/>
+
+            <xs:element name="SendRequestRequest" type="tns:sendRequestRequest"/>
+
+            <xs:element name="SendRequestResponse" type="tns:smevEndpointFacadeWsResponse"/>
+
+            <xs:element name="SendResponseRequest" type="tns:sendResponseRequest"/>
+
+            <xs:element name="SendResponseRequestRejectedRequest" type="tns:sendResponseRequestRejectedRequest"/>
+
+            <xs:element name="SendResponseRequestStatusRequest">
+
+                <xs:complexType>
+
+                    <xs:sequence>
+
+                        <xs:element name="OriginalMessageId" type="xs:string"/>
+
+                        <xs:element name="StatusCode" type="xs:int"/>
+
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="StatusParameter"
+                                    type="tns:RequestStatusParameterType"/>
+
+                        <xs:element name="StatusDescription" type="xs:string"/>
+
+                    </xs:sequence>
+
+                </xs:complexType>
+
+            </xs:element>
+
+            <xs:complexType name="CheckRequestResponses">
+
+                <xs:sequence/>
+
+            </xs:complexType>
+
+            <xs:complexType name="CheckRequestResponsesResponse">
+
+                <xs:sequence/>
+
+            </xs:complexType>
+
+            <xs:complexType name="RedeliverSupplierRequest">
+
+                <xs:sequence>
+
+                    <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+
+                </xs:sequence>
+
+            </xs:complexType>
+
+            <xs:complexType name="RedeliverSupplierRequestResponse">
+
+                <xs:sequence/>
+
+            </xs:complexType>
+
+            <xs:complexType name="sendRequestRequest">
+
+                <xs:sequence>
+
+                    <xs:element name="EndpointCode" type="xs:string"/>
+
+                    <xs:element minOccurs="0" name="EndSystemCode" type="xs:string"/>
+
+                    <xs:element minOccurs="0" name="IsTest" type="xs:boolean"/>
+
+                    <xs:element minOccurs="0" name="TransactionCode" type="xs:string"/>
+
+                    <xs:element minOccurs="0" name="ReferenceMessageId" type="xs:string"/>
+
+                    <xs:element minOccurs="0" name="EOL" type="xs:dateTime"/>
+
+                    <xs:element name="Data" type="tns:data"/>
+
+                    <xs:element minOccurs="0" name="PersonalSignature" type="tns:data"/>
+
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="Attachment"
+                                type="tns:wsOutboundAttachmentType"/>
+
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="SendingOption" type="tns:SendingOptionType"/>
+
+                </xs:sequence>
+
+            </xs:complexType>
+
+
+            <xsd:complexType name="SendingOptionType">
+
+                <xsd:annotation>
+
+                    <xsd:documentation>
+                        Опции отправки в СМЭВ 3
+                    </xsd:documentation>
+
+                </xsd:annotation>
+
+                <xsd:simpleContent>
+
+                    <xsd:extension base="xsd:string">
+
+                        <xsd:attribute name="name" type="xsd:string">
+
+                            <xsd:annotation>
+
+                                <xsd:documentation>Наименование опции</xsd:documentation>
+
+                            </xsd:annotation>
+
+                        </xsd:attribute>
+
+                    </xsd:extension>
+
+                </xsd:simpleContent>
+
+            </xsd:complexType>
+
+
+            <xs:complexType name="data">
+
+                <xs:sequence>
+
+                    <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="skip"/>
+
+                </xs:sequence>
+
+            </xs:complexType>
+
+            <xs:complexType name="wsOutboundAttachmentType">
+
+                <xs:sequence>
+
+                    <xs:element minOccurs="0" name="ExternalContentId" type="xs:string"/>
+
+                    <xs:element minOccurs="0" name="AttachmentId" type="xs:string"/>
+
+                    <xs:element name="FileName" type="xs:string"/>
+
+                    <xs:element name="MimeType" type="xs:string"/>
+
+                    <xs:element minOccurs="0" name="Signature" type="xs:base64Binary"/>
+
+                    <xs:element minOccurs="0" name="Digest" type="xs:base64Binary"/>
+
+                    <xs:element minOccurs="0" name="Content" type="xs:base64Binary"/>
+
+                </xs:sequence>
+
+            </xs:complexType>
+
+            <xs:complexType name="smevEndpointFacadeWsResponse">
+
+                <xs:sequence>
+
+                    <xs:element minOccurs="0" name="messageId" type="xs:string"/>
+
+                </xs:sequence>
+
+            </xs:complexType>
+
+            <xs:complexType name="sendResponseRequestRejectedRequest">
+
+                <xs:sequence>
+
+                    <xs:element name="OriginalMessageId" type="xs:string"/>
+
+                    <xs:element name="RequestRejected" type="tns:requestRejected"/>
+
+                </xs:sequence>
+
+            </xs:complexType>
+
+            <xs:complexType name="requestRejected">
+
+                <xs:sequence>
+
+                    <xs:element name="RejectionReasonCode" type="tns:rejectCodeEnum"/>
+
+                    <xs:element name="RejectionReasonDescription" type="xs:string"/>
+
+                </xs:sequence>
+
+            </xs:complexType>
+
+            <xs:complexType name="CheckIncomingRequests">
+
+                <xs:sequence/>
+
+            </xs:complexType>
+
+            <xs:complexType name="CheckIncomingRequestsResponse">
+
+                <xs:sequence/>
+
+            </xs:complexType>
+
+            <xs:complexType name="getAttachmentsInfoRequest">
+
+                <xs:sequence>
+
+                    <xs:element form="qualified" minOccurs="0" name="messageId" type="xs:string"/>
+
+                </xs:sequence>
+
+            </xs:complexType>
+
+            <xs:complexType name="getAttachmentsInfoResult">
+
+                <xs:sequence>
+
+                    <xs:element form="qualified" maxOccurs="unbounded" minOccurs="0" name="MessageAttachmentInfo">
+
+                        <xs:complexType>
+
+                            <xs:sequence>
+
+                                <xs:element form="qualified" minOccurs="0" name="id" type="xs:string"/>
+
+                                <xs:element form="qualified" minOccurs="0" name="attachmentId" type="xs:string"/>
+
+                                <xs:element form="qualified" minOccurs="0" name="mimeType" type="xs:string"/>
+
+                                <xs:element form="qualified" minOccurs="0" name="fileName" type="xs:string"/>
+
+                            </xs:sequence>
+
+                        </xs:complexType>
+
+                    </xs:element>
+
+                </xs:sequence>
+
+            </xs:complexType>
+
+            <xs:complexType name="RedeliverConsumerResponse">
+
+                <xs:sequence>
+
+                    <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+
+                </xs:sequence>
+
+            </xs:complexType>
+
+            <xs:complexType name="RedeliverConsumerResponseResponse">
+
+                <xs:sequence/>
+
+            </xs:complexType>
+
+            <xs:complexType name="RequestStatusParameterType">
+
+                <xs:sequence>
+
+                    <xs:element name="Key" type="xs:string"/>
+
+                    <xs:element name="Value" nillable="true" type="xs:string"/>
+
+                </xs:sequence>
+
+            </xs:complexType>
+
+            <xs:complexType name="generateMarkRequest">
+
+                <xs:sequence>
+
+                    <xs:element name="EndpointCode" type="xs:string"/>
+
+                    <xs:element name="FRGUInformation" type="ns1:FRGUInformation"/>
+
+                </xs:sequence>
+
+            </xs:complexType>
+
+            <xs:complexType name="sendResponseRequest">
+
+                <xs:sequence>
+
+                    <xs:element name="OriginalMessageId" type="xs:string"/>
+
+                    <xs:element name="Data" type="tns:data"/>
+
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="Attachment"
+                                type="tns:wsOutboundAttachmentType"/>
+
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="SendingOption" type="tns:SendingOptionType"/>
+
+                </xs:sequence>
+
+            </xs:complexType>
+
+            <xs:simpleType name="rejectCodeEnum">
+
+                <xs:restriction base="xs:string">
+
+                    <xs:enumeration value="ACCESS_DENIED"/>
+
+                    <xs:enumeration value="NO_DATA"/>
+
+                    <xs:enumeration value="UNKNOWN_REQUEST_DESCRIPTION"/>
+
+                    <xs:enumeration value="FAILURE"/>
+
+                </xs:restriction>
+
+            </xs:simpleType>
+
+            <xs:element name="SendRequest" nillable="true" type="tns:sendRequestRequest"/>
+
+            <xs:element name="SendResponseRequestRejected" nillable="true"
+                        type="tns:sendResponseRequestRejectedRequest"/>
+
+            <xs:element name="SendResponseResponse" nillable="true" type="tns:smevEndpointFacadeWsResponse"/>
+
+            <xs:element name="GetSupplierRequestAttachmentsInfo" nillable="true" type="tns:getAttachmentsInfoRequest"/>
+
+            <xs:element name="GetSupplierRequestAttachmentsInfoResponse" nillable="true"
+                        type="tns:getAttachmentsInfoResult"/>
+
+            <xs:element name="SendResponseRequestStatus" nillable="true">
+
+                <xs:complexType>
+
+                    <xs:sequence>
+
+                        <xs:element name="OriginalMessageId" type="xs:string"/>
+
+                        <xs:element name="StatusCode" type="xs:int"/>
+
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="StatusParameter"
+                                    type="tns:RequestStatusParameterType"/>
+
+                        <xs:element name="StatusDescription" type="xs:string"/>
+
+                    </xs:sequence>
+
+                </xs:complexType>
+
+            </xs:element>
+
+            <xs:element name="GenerateMark" nillable="true" type="tns:generateMarkRequest"/>
+
+            <xs:element name="generateMarkResponse" nillable="true" type="ns0:generateMarkResponse"/>
+
+            <xs:element name="SendResponse" nillable="true" type="tns:sendResponseRequest"/>
+
+        </xs:schema>
+        <xs:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                   xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                   xmlns:tns="http://endpoints.transactionmarker.voskhod.ru/"
+                   xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://voskhod.ru/transaction-marker"
+                   attributeFormDefault="unqualified" elementFormDefault="unqualified"
+                   targetNamespace="http://endpoints.transactionmarker.voskhod.ru/">
+
+            <xs:element name="frguInformation" type="ns1:FRGUInformation"/>
+
+            <xs:element name="generateMark" type="tns:generateMark"/>
+
+            <xs:element name="generateMarkResponse" type="tns:generateMarkResponse"/>
+
+            <xs:complexType name="generateMark">
+
+                <xs:sequence>
+
+                    <xs:element name="FRGUInformation" type="ns1:FRGUInformation"/>
+
+                </xs:sequence>
+
+            </xs:complexType>
+
+            <xs:complexType name="generateMarkResponse">
+
+                <xs:sequence>
+
+                    <xs:element minOccurs="0" name="return" type="ns1:marker"/>
+
+                </xs:sequence>
+
+            </xs:complexType>
+
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="SendResponseRequestStatusResponse">
+        <wsdl:part element="tns:SendResponseResponse" name="SendResponseResponse">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="RedeliverSupplierRequest">
+        <wsdl:part element="tns:RedeliverSupplierRequest" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="GenerateMarkResponse">
+        <wsdl:part element="tns:generateMarkResponse" name="generateMarkResponse">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="CheckRequestResponsesResponse">
+        <wsdl:part element="tns:CheckRequestResponsesResponse" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="RedeliverConsumerResponseResponse">
+        <wsdl:part element="tns:RedeliverConsumerResponseResponse" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="SendRequest">
+        <wsdl:part element="tns:SendRequest" name="SendRequest">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="CheckIncomingRequests">
+        <wsdl:part element="tns:CheckIncomingRequests" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="RedeliverConsumerResponse">
+        <wsdl:part element="tns:RedeliverConsumerResponse" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="RedeliverSupplierRequestResponse">
+        <wsdl:part element="tns:RedeliverSupplierRequestResponse" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="SendResponse">
+        <wsdl:part element="tns:SendResponse" name="SendResponse">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="SendResponseResponse">
+        <wsdl:part element="tns:SendResponseResponse" name="SendResponseResponse">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="CheckRequestResponses">
+        <wsdl:part element="tns:CheckRequestResponses" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="SendResponseRequestRejectedResponse">
+        <wsdl:part element="tns:SendResponseResponse" name="SendResponseResponse">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="GetSupplierRequestAttachmentsInfoResponse">
+        <wsdl:part element="tns:GetSupplierRequestAttachmentsInfoResponse"
+                   name="GetSupplierRequestAttachmentsInfoResponse">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="CheckIncomingRequestsResponse">
+        <wsdl:part element="tns:CheckIncomingRequestsResponse" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="SendResponseRequestRejected">
+        <wsdl:part element="tns:SendResponseRequestRejected" name="SendResponseRequestRejected">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="GetSupplierRequestAttachmentsInfo">
+        <wsdl:part element="tns:GetSupplierRequestAttachmentsInfo" name="GetSupplierRequestAttachmentsInfo">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="SendResponseRequestStatus">
+        <wsdl:part element="tns:SendResponseRequestStatus" name="SendResponseRequestStatus">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="GenerateMark">
+        <wsdl:part element="tns:GenerateMark" name="GenerateMark">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="SendRequestResponse">
+        <wsdl:part element="tns:SendRequestResponse" name="SendRequestResponse">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="SmevEndpointFacadeWs">
+        <wsdl:operation name="CheckRequestResponses">
+            <wsdl:input message="tns:CheckRequestResponses" name="CheckRequestResponses">
+            </wsdl:input>
+            <wsdl:output message="tns:CheckRequestResponsesResponse" name="CheckRequestResponsesResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="RedeliverSupplierRequest">
+            <wsdl:input message="tns:RedeliverSupplierRequest" name="RedeliverSupplierRequest">
+            </wsdl:input>
+            <wsdl:output message="tns:RedeliverSupplierRequestResponse" name="RedeliverSupplierRequestResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SendRequest">
+            <wsdl:input message="tns:SendRequest" name="SendRequest">
+            </wsdl:input>
+            <wsdl:output message="tns:SendRequestResponse" name="SendRequestResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SendResponseRequestRejected">
+            <wsdl:input message="tns:SendResponseRequestRejected" name="SendResponseRequestRejected">
+            </wsdl:input>
+            <wsdl:output message="tns:SendResponseRequestRejectedResponse" name="SendResponseRequestRejectedResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CheckIncomingRequests">
+            <wsdl:input message="tns:CheckIncomingRequests" name="CheckIncomingRequests">
+            </wsdl:input>
+            <wsdl:output message="tns:CheckIncomingRequestsResponse" name="CheckIncomingRequestsResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetSupplierRequestAttachmentsInfo">
+            <wsdl:input message="tns:GetSupplierRequestAttachmentsInfo" name="GetSupplierRequestAttachmentsInfo">
+            </wsdl:input>
+            <wsdl:output message="tns:GetSupplierRequestAttachmentsInfoResponse"
+                         name="GetSupplierRequestAttachmentsInfoResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="RedeliverConsumerResponse">
+            <wsdl:input message="tns:RedeliverConsumerResponse" name="RedeliverConsumerResponse">
+            </wsdl:input>
+            <wsdl:output message="tns:RedeliverConsumerResponseResponse" name="RedeliverConsumerResponseResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SendResponseRequestStatus">
+            <wsdl:input message="tns:SendResponseRequestStatus" name="SendResponseRequestStatus">
+            </wsdl:input>
+            <wsdl:output message="tns:SendResponseRequestStatusResponse" name="SendResponseRequestStatusResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GenerateMark">
+            <wsdl:input message="tns:GenerateMark" name="GenerateMark">
+            </wsdl:input>
+            <wsdl:output message="tns:GenerateMarkResponse" name="GenerateMarkResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SendResponse">
+            <wsdl:input message="tns:SendResponse" name="SendResponse">
+            </wsdl:input>
+            <wsdl:output message="tns:SendResponseResponse" name="SendResponseResponse">
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="SmevEndpointFacadeWsServiceSoapBinding" type="tns:SmevEndpointFacadeWs">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="CheckRequestResponses">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="CheckRequestResponses">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="CheckRequestResponsesResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="RedeliverSupplierRequest">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="RedeliverSupplierRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="RedeliverSupplierRequestResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SendRequest">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="SendRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="SendRequestResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SendResponseRequestRejected">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="SendResponseRequestRejected">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="SendResponseRequestRejectedResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CheckIncomingRequests">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="CheckIncomingRequests">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="CheckIncomingRequestsResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetSupplierRequestAttachmentsInfo">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="GetSupplierRequestAttachmentsInfo">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="GetSupplierRequestAttachmentsInfoResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="RedeliverConsumerResponse">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="RedeliverConsumerResponse">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="RedeliverConsumerResponseResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SendResponseRequestStatus">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="SendResponseRequestStatus">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="SendResponseRequestStatusResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GenerateMark">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="GenerateMark">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="GenerateMarkResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SendResponse">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="SendResponse">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="SendResponseResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="SmevEndpointFacadeWsService">
+        <wsdl:port binding="tns:SmevEndpointFacadeWsServiceSoapBinding" name="SmevEndpointFacadeWsPort">
+            <soap:address location="http://hmao-esb.fors.ru:8880/SmevMessageExchangeWAR/services/SmevEndpointFacade"/>
+        </wsdl:port>
+    </wsdl:service>
 </wsdl:definitions>

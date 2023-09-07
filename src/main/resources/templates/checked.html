@@ -1,22 +1,22 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <title>Установите нужные поля для ответа </title>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet" th:href="@{/css/style.css}" type="text/css"/>
 </head>
 <body>
 <h1>Установите нужные поля от хост/v2/год</h1>
 <br/><br/>
 <div>
-    <form th:action="@{/requests/save}" th:object="${request}" method="post">
+    <form method="post" th:action="@{/requests/save}" th:object="${request}">
         <table>
-            <label th:each="req : ${allKeys}" >
-                    <input type="checkbox" name="requests"
-                           th:text="${req.field}"
-                           th:value="${req.id}"
-                           th:field="*{requests}"
-                    />
+            <label th:each="req : ${allKeys}">
+                <input name="requests" th:field="*{requests}"
+                       th:text="${req.field}"
+                       th:value="${req.id}"
+                       type="checkbox"
+                />
                 <br/>
             </label>
             <tr>

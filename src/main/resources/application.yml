@@ -1,5 +1,4 @@
-
 info:
-  endpoint: https://nsddata.ru/api/get/news?limit=10&apikey=DEMO
+  endpoint: http://jsonplaceholder.typicode.com/posts
 file-request: config-request.yaml
 file-response: response-fields

@@ -1,264 +1,265 @@
-[{
-  "_id": {
-    "$oid": "57e389b2219bc9bd22fb9ab8"
-  },
-  "id": "f63aa091-784d-44c4-883a-c2f8346cbe25",
-  "active": true,
-  "login": "admin",
-  "password": "",
-  "name": "Администратор Админ Админович",
-  "roles": [],
-  "sprOrganizations": [
-    {
-      "id": "1e38fbc6-b36e-4497-ae8d-d3b375922594"
+[
+  {
+    "_id": {
+      "$oid": "57e389b2219bc9bd22fb9ab8"
     },
-    {
-      "id": "58f54f2b-f3c0-4b02-8962-c2c490237c8d"
-    },
-    {
-      "id": "dab82940-633a-4b23-8cde-5f38787601fb"
-    },
-    {
-      "id": "0a9bd9d3-0464-4499-8123-eb7e70edd7e0"
-    },
-    {
-      "id": "ad61e1fd-7028-4dbc-b701-ced83c9d28d2"
-    },
-    {
-      "id": "618bde4a-e1b5-4165-9138-694d1701537d"
-    },
-    {
-      "id": "90275425-14f6-461a-bc43-71d732b0af11"
-    }
-  ],
-  "linkRoles": [
-    {
-      "role": {
-        "id": "5efdb590-2788-4e43-85a7-1dd55b8c8055"
-      },
-      "sprOrganization": {
+    "id": "f63aa091-784d-44c4-883a-c2f8346cbe25",
+    "active": true,
+    "login": "admin",
+    "password": "",
+    "name": "Администратор Админ Админович",
+    "roles": [],
+    "sprOrganizations": [
+      {
         "id": "1e38fbc6-b36e-4497-ae8d-d3b375922594"
-      }
-    },
-    {
-      "role": {
-        "id": "5efdb590-2788-4e43-85a7-1dd55b8c8055"
       },
-      "sprOrganization": {
+      {
         "id": "58f54f2b-f3c0-4b02-8962-c2c490237c8d"
-      }
-    },
-    {
-      "role": {
-        "id": "5efdb590-2788-4e43-85a7-1dd55b8c8055"
       },
-      "sprOrganization": {
+      {
         "id": "dab82940-633a-4b23-8cde-5f38787601fb"
-      }
-    },
-    {
-      "role": {
-        "id": "5efdb590-2788-4e43-85a7-1dd55b8c8055"
       },
-      "sprOrganization": {
+      {
         "id": "0a9bd9d3-0464-4499-8123-eb7e70edd7e0"
-      }
-    },
-    {
-      "role": {
-        "id": "5efdb590-2788-4e43-85a7-1dd55b8c8055"
       },
-      "sprOrganization": {
+      {
         "id": "ad61e1fd-7028-4dbc-b701-ced83c9d28d2"
-      }
-    },
-    {
-      "role": {
-        "id": "5efdb590-2788-4e43-85a7-1dd55b8c8055"
       },
-      "sprOrganization": {
+      {
         "id": "618bde4a-e1b5-4165-9138-694d1701537d"
-      }
-    },
-    {
-      "role": {
-        "id": "5efdb590-2788-4e43-85a7-1dd55b8c8055"
       },
-      "sprOrganization": {
+      {
         "id": "90275425-14f6-461a-bc43-71d732b0af11"
       }
-    }
-  ],
-  "dateLastModification": {
-    "$date": "2023-08-29T11:16:19.117Z"
+    ],
+    "linkRoles": [
+      {
+        "role": {
+          "id": "5efdb590-2788-4e43-85a7-1dd55b8c8055"
+        },
+        "sprOrganization": {
+          "id": "1e38fbc6-b36e-4497-ae8d-d3b375922594"
+        }
+      },
+      {
+        "role": {
+          "id": "5efdb590-2788-4e43-85a7-1dd55b8c8055"
+        },
+        "sprOrganization": {
+          "id": "58f54f2b-f3c0-4b02-8962-c2c490237c8d"
+        }
+      },
+      {
+        "role": {
+          "id": "5efdb590-2788-4e43-85a7-1dd55b8c8055"
+        },
+        "sprOrganization": {
+          "id": "dab82940-633a-4b23-8cde-5f38787601fb"
+        }
+      },
+      {
+        "role": {
+          "id": "5efdb590-2788-4e43-85a7-1dd55b8c8055"
+        },
+        "sprOrganization": {
+          "id": "0a9bd9d3-0464-4499-8123-eb7e70edd7e0"
+        }
+      },
+      {
+        "role": {
+          "id": "5efdb590-2788-4e43-85a7-1dd55b8c8055"
+        },
+        "sprOrganization": {
+          "id": "ad61e1fd-7028-4dbc-b701-ced83c9d28d2"
+        }
+      },
+      {
+        "role": {
+          "id": "5efdb590-2788-4e43-85a7-1dd55b8c8055"
+        },
+        "sprOrganization": {
+          "id": "618bde4a-e1b5-4165-9138-694d1701537d"
+        }
+      },
+      {
+        "role": {
+          "id": "5efdb590-2788-4e43-85a7-1dd55b8c8055"
+        },
+        "sprOrganization": {
+          "id": "90275425-14f6-461a-bc43-71d732b0af11"
+        }
+      }
+    ],
+    "dateLastModification": {
+      "$date": "2023-08-29T11:16:19.117Z"
+    },
+    "userLastModification": {
+      "_id": "5fc8ef0c4f30262200a6543f",
+      "login": "systemuser",
+      "name": "Системный пользователь",
+      "id": "d8922b1f-085c-46bb-8274-9cf32617e301"
+    },
+    "applications": [
+      "58da70040b01b717a472a7c3",
+      "5aaf59d2f865ab6d16ade978",
+      "5b69386eb76bb0226c38523f",
+      "5aafb174f865ab6d16ade979",
+      "5e9f72ddf62f01066c4d4fb0",
+      "5de0f5105177b3278460db2d",
+      "60caf54d6e47a8185482ceea",
+      "5a8d10c76ff47855ea84e6ce",
+      "5e5f4be103cfb334c8d1357e",
+      "5e9f86f0f62f01066c4d4fb2",
+      "5e9f89aaf62f01066c4d4fb5",
+      "5f3cd6997d04963554ef2193",
+      "5e9f3105f62f01066c4d4fa3",
+      "5a8c21ab6ff47855ea84e6cd",
+      "5e5f89a903cfb334c8d135a0",
+      "6142fed23632552f743ab651",
+      "62ac7a199d1e80465066784a",
+      "630f6db8bcfa7c000149ab72",
+      "63883fc1f881224850cf3a88",
+      "63be999c9c8aef00018ecd0b",
+      "62ac7a459d1e80465066784b",
+      "632d57a74d36c30001a99d8c",
+      "6389ad809c8aef00018cf966",
+      "634d281ea9766f00014be919",
+      "6319e221389f2000017dc5e4",
+      "63981282fa34634524a8c8cb",
+      "6466308ba47b9e0001d5eea2",
+      "63c53eb9f044c30001fddd10",
+      "646f18c7a47b9e0001d5eed5",
+      "646f1bfca47b9e0001d5eee1",
+      "646f1b24a47b9e0001d5eedd",
+      "619df02b5866fa381380bcbf",
+      "64ae77634a53d55f0b3aecfc",
+      "64af9f0d4a53d55f0b3aed09",
+      "64afa2324a53d55f0b3aed13",
+      "64afa4874a53d55f0b3aed1d",
+      "64afb1094a53d55f0b3aed4e",
+      "64afb2944a53d55f0b3aed5a",
+      "64afb0514a53d55f0b3aed48",
+      "64b7e59c6d523871e0ac5c6a",
+      "64b670914a53d55f0b3aeddd"
+    ],
+    "certificate": null,
+    "certificateMD5": null,
+    "loginEvolentaEo": "admin",
+    "passwordEvolentaEo": "root",
+    "windowEvolentaEo": "59401",
+    "snils": "145-058-054 46",
+    "phone": "103",
+    "globalRoles": true,
+    "linkPermissions": [],
+    "permissions": [],
+    "linkRolesMnemonics": [
+      {
+        "roleMnemonic": "supervisor",
+        "sprOrganization": "1e38fbc6-b36e-4497-ae8d-d3b375922594"
+      },
+      {
+        "roleMnemonic": "supervisor",
+        "sprOrganization": "58f54f2b-f3c0-4b02-8962-c2c490237c8d"
+      },
+      {
+        "roleMnemonic": "specialist",
+        "sprOrganization": "58f54f2b-f3c0-4b02-8962-c2c490237c8d"
+      },
+      {
+        "roleMnemonic": "supervizor",
+        "sprOrganization": "58f54f2b-f3c0-4b02-8962-c2c490237c8d"
+      },
+      {
+        "roleMnemonic": "inspector",
+        "sprOrganization": "58f54f2b-f3c0-4b02-8962-c2c490237c8d"
+      },
+      {
+        "roleMnemonic": "metodolog",
+        "sprOrganization": "58f54f2b-f3c0-4b02-8962-c2c490237c8d"
+      },
+      {
+        "roleMnemonic": "supervisor",
+        "sprOrganization": "dab82940-633a-4b23-8cde-5f38787601fb"
+      },
+      {
+        "roleMnemonic": "supervisor",
+        "sprOrganization": "0a9bd9d3-0464-4499-8123-eb7e70edd7e0"
+      },
+      {
+        "roleMnemonic": "specialist",
+        "sprOrganization": "0a9bd9d3-0464-4499-8123-eb7e70edd7e0"
+      },
+      {
+        "roleMnemonic": "inspector",
+        "sprOrganization": "0a9bd9d3-0464-4499-8123-eb7e70edd7e0"
+      },
+      {
+        "roleMnemonic": "metodolog",
+        "sprOrganization": "0a9bd9d3-0464-4499-8123-eb7e70edd7e0"
+      },
+      {
+        "roleMnemonic": "supervisor",
+        "sprOrganization": "ad61e1fd-7028-4dbc-b701-ced83c9d28d2"
+      },
+      {
+        "roleMnemonic": "inspector",
+        "sprOrganization": "ad61e1fd-7028-4dbc-b701-ced83c9d28d2"
+      },
+      {
+        "roleMnemonic": "metodolog",
+        "sprOrganization": "ad61e1fd-7028-4dbc-b701-ced83c9d28d2"
+      },
+      {
+        "roleMnemonic": "specialist",
+        "sprOrganization": "ad61e1fd-7028-4dbc-b701-ced83c9d28d2"
+      },
+      {
+        "roleMnemonic": "supervizor",
+        "sprOrganization": "ad61e1fd-7028-4dbc-b701-ced83c9d28d2"
+      },
+      {
+        "roleMnemonic": "supervisor",
+        "sprOrganization": "618bde4a-e1b5-4165-9138-694d1701537d"
+      },
+      {
+        "roleMnemonic": "specialist",
+        "sprOrganization": "618bde4a-e1b5-4165-9138-694d1701537d"
+      },
+      {
+        "roleMnemonic": "supervizor",
+        "sprOrganization": "618bde4a-e1b5-4165-9138-694d1701537d"
+      },
+      {
+        "roleMnemonic": "supervisor",
+        "sprOrganization": "90275425-14f6-461a-bc43-71d732b0af11"
+      },
+      {
+        "roleMnemonic": "inspector",
+        "sprOrganization": "90275425-14f6-461a-bc43-71d732b0af11"
+      },
+      {
+        "roleMnemonic": "metodolog",
+        "sprOrganization": "90275425-14f6-461a-bc43-71d732b0af11"
+      }
+    ],
+    "notificationSettings": [],
+    "requests": [],
+    "invalidPasswordBlockStartDate": null,
+    "lastLogoutDate": null,
+    "lastSuccessAuthDate": "2023-08-29T11:16:19",
+    "unsuccessfullAuthAttempts": 0,
+    "position": "Заместитель начальника",
+    "email": "test@test.test",
+    "mobile": "+7(999) 999 99 99",
+    "forceChangePassword": false,
+    "lastPasswordChangeDate": "2022-08-08T10:34:21",
+    "telegramId": null,
+    "telephoneNuberWithAreaCode": "+7(885) 555 65 55",
+    "blockUserDate": null,
+    "positionCode": null,
+    "isUnusedBlocked": false,
+    "applicationModules": []
   },
-  "userLastModification": {
-    "_id": "5fc8ef0c4f30262200a6543f",
-    "login": "systemuser",
-    "name": "Системный пользователь",
-    "id": "d8922b1f-085c-46bb-8274-9cf32617e301"
-  },
-  "applications": [
-    "58da70040b01b717a472a7c3",
-    "5aaf59d2f865ab6d16ade978",
-    "5b69386eb76bb0226c38523f",
-    "5aafb174f865ab6d16ade979",
-    "5e9f72ddf62f01066c4d4fb0",
-    "5de0f5105177b3278460db2d",
-    "60caf54d6e47a8185482ceea",
-    "5a8d10c76ff47855ea84e6ce",
-    "5e5f4be103cfb334c8d1357e",
-    "5e9f86f0f62f01066c4d4fb2",
-    "5e9f89aaf62f01066c4d4fb5",
-    "5f3cd6997d04963554ef2193",
-    "5e9f3105f62f01066c4d4fa3",
-    "5a8c21ab6ff47855ea84e6cd",
-    "5e5f89a903cfb334c8d135a0",
-    "6142fed23632552f743ab651",
-    "62ac7a199d1e80465066784a",
-    "630f6db8bcfa7c000149ab72",
-    "63883fc1f881224850cf3a88",
-    "63be999c9c8aef00018ecd0b",
-    "62ac7a459d1e80465066784b",
-    "632d57a74d36c30001a99d8c",
-    "6389ad809c8aef00018cf966",
-    "634d281ea9766f00014be919",
-    "6319e221389f2000017dc5e4",
-    "63981282fa34634524a8c8cb",
-    "6466308ba47b9e0001d5eea2",
-    "63c53eb9f044c30001fddd10",
-    "646f18c7a47b9e0001d5eed5",
-    "646f1bfca47b9e0001d5eee1",
-    "646f1b24a47b9e0001d5eedd",
-    "619df02b5866fa381380bcbf",
-    "64ae77634a53d55f0b3aecfc",
-    "64af9f0d4a53d55f0b3aed09",
-    "64afa2324a53d55f0b3aed13",
-    "64afa4874a53d55f0b3aed1d",
-    "64afb1094a53d55f0b3aed4e",
-    "64afb2944a53d55f0b3aed5a",
-    "64afb0514a53d55f0b3aed48",
-    "64b7e59c6d523871e0ac5c6a",
-    "64b670914a53d55f0b3aeddd"
-  ],
-  "certificate": null,
-  "certificateMD5": null,
-  "loginEvolentaEo": "admin",
-  "passwordEvolentaEo": "root",
-  "windowEvolentaEo": "59401",
-  "snils": "145-058-054 46",
-  "phone": "103",
-  "globalRoles": true,
-  "linkPermissions": [],
-  "permissions": [],
-  "linkRolesMnemonics": [
-    {
-      "roleMnemonic": "supervisor",
-      "sprOrganization": "1e38fbc6-b36e-4497-ae8d-d3b375922594"
-    },
-    {
-      "roleMnemonic": "supervisor",
-      "sprOrganization": "58f54f2b-f3c0-4b02-8962-c2c490237c8d"
-    },
-    {
-      "roleMnemonic": "specialist",
-      "sprOrganization": "58f54f2b-f3c0-4b02-8962-c2c490237c8d"
-    },
-    {
-      "roleMnemonic": "supervizor",
-      "sprOrganization": "58f54f2b-f3c0-4b02-8962-c2c490237c8d"
-    },
-    {
-      "roleMnemonic": "inspector",
-      "sprOrganization": "58f54f2b-f3c0-4b02-8962-c2c490237c8d"
-    },
-    {
-      "roleMnemonic": "metodolog",
-      "sprOrganization": "58f54f2b-f3c0-4b02-8962-c2c490237c8d"
-    },
-    {
-      "roleMnemonic": "supervisor",
-      "sprOrganization": "dab82940-633a-4b23-8cde-5f38787601fb"
-    },
-    {
-      "roleMnemonic": "supervisor",
-      "sprOrganization": "0a9bd9d3-0464-4499-8123-eb7e70edd7e0"
-    },
-    {
-      "roleMnemonic": "specialist",
-      "sprOrganization": "0a9bd9d3-0464-4499-8123-eb7e70edd7e0"
-    },
-    {
-      "roleMnemonic": "inspector",
-      "sprOrganization": "0a9bd9d3-0464-4499-8123-eb7e70edd7e0"
-    },
-    {
-      "roleMnemonic": "metodolog",
-      "sprOrganization": "0a9bd9d3-0464-4499-8123-eb7e70edd7e0"
-    },
-    {
-      "roleMnemonic": "supervisor",
-      "sprOrganization": "ad61e1fd-7028-4dbc-b701-ced83c9d28d2"
-    },
-    {
-      "roleMnemonic": "inspector",
-      "sprOrganization": "ad61e1fd-7028-4dbc-b701-ced83c9d28d2"
-    },
-    {
-      "roleMnemonic": "metodolog",
-      "sprOrganization": "ad61e1fd-7028-4dbc-b701-ced83c9d28d2"
-    },
-    {
-      "roleMnemonic": "specialist",
-      "sprOrganization": "ad61e1fd-7028-4dbc-b701-ced83c9d28d2"
-    },
-    {
-      "roleMnemonic": "supervizor",
-      "sprOrganization": "ad61e1fd-7028-4dbc-b701-ced83c9d28d2"
-    },
-    {
-      "roleMnemonic": "supervisor",
-      "sprOrganization": "618bde4a-e1b5-4165-9138-694d1701537d"
-    },
-    {
-      "roleMnemonic": "specialist",
-      "sprOrganization": "618bde4a-e1b5-4165-9138-694d1701537d"
-    },
-    {
-      "roleMnemonic": "supervizor",
-      "sprOrganization": "618bde4a-e1b5-4165-9138-694d1701537d"
-    },
-    {
-      "roleMnemonic": "supervisor",
-      "sprOrganization": "90275425-14f6-461a-bc43-71d732b0af11"
-    },
-    {
-      "roleMnemonic": "inspector",
-      "sprOrganization": "90275425-14f6-461a-bc43-71d732b0af11"
-    },
-    {
-      "roleMnemonic": "metodolog",
-      "sprOrganization": "90275425-14f6-461a-bc43-71d732b0af11"
-    }
-  ],
-  "notificationSettings": [],
-  "requests": [],
-  "invalidPasswordBlockStartDate": null,
-  "lastLogoutDate": null,
-  "lastSuccessAuthDate": "2023-08-29T11:16:19",
-  "unsuccessfullAuthAttempts": 0,
-  "position": "Заместитель начальника",
-  "email": "test@test.test",
-  "mobile": "+7(999) 999 99 99",
-  "forceChangePassword": false,
-  "lastPasswordChangeDate": "2022-08-08T10:34:21",
-  "telegramId": null,
-  "telephoneNuberWithAreaCode": "+7(885) 555 65 55",
-  "blockUserDate": null,
-  "positionCode": null,
-  "isUnusedBlocked": false,
-  "applicationModules": []
-},
   {
     "_id": {
       "$oid": "5fc8ef0c4f30262200a6543f"
@@ -3881,4 +3882,5 @@
     "lastSuccessAuthDate": "2023-08-24T12:28:38",
     "unsuccessfullAuthAttempts": 0,
     "lastLogoutDate": null
-  }]
+  }
+]
