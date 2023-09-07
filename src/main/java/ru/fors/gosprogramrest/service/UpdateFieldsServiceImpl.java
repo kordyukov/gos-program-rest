@@ -7,8 +7,11 @@ import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+import ru.fors.gosprogramrest.model.dto.request.Request;
 import ru.fors.gosprogramrest.model.dto.request.Requests;
 
 import java.io.File;
@@ -41,7 +44,8 @@ public class UpdateFieldsServiceImpl implements UpdateFieldsService {
         } else if (node.getNodeType() == JsonNodeType.OBJECT) {
             traverseObject(node, level, map, keyBuilder);
         } else {
-            throw new RuntimeException("Not yet implemented");
+            traverseObject(node, level, map, keyBuilder);
+            //throw new RuntimeException("Not yet implemented");
         }
     }
 
@@ -100,7 +104,9 @@ public class UpdateFieldsServiceImpl implements UpdateFieldsService {
 
     @Override
     public List<Map<Object, Object>> receivedFields(Integer year) throws IOException {
-        String read = restTemplate.getForObject(url, String.class);
+        HttpHeaders headers = new HttpHeaders();
+        HttpEntity http = new HttpEntity(new Request(), headers);
+        String read = restTemplate.postForObject(url, http, String.class);
 //        String read = Files.read(new ClassPathResource("/test.json")
 //                .getFile(), StandardCharsets.UTF_8);
 
@@ -115,7 +121,12 @@ public class UpdateFieldsServiceImpl implements UpdateFieldsService {
             maps.add(map);
         }
 
-        saveToFile(maps.get(0).keySet(), fileRequest);
+        maps.forEach(map -> {
+            if (!map.isEmpty()) {
+                saveToFile(map.keySet(), fileRequest);
+            }
+        });
+
         return maps;
     }
 
