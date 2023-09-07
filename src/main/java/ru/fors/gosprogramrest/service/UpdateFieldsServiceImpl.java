@@ -114,6 +114,7 @@ public class UpdateFieldsServiceImpl implements UpdateFieldsService {
             traverse(next, 1, map, keyBuilder);
             maps.add(map);
         }
+
         saveToFile(maps.get(0).keySet(), fileRequest);
         return maps;
     }
