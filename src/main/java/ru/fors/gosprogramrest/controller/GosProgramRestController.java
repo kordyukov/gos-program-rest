@@ -39,15 +39,15 @@ public class GosProgramRestController {
 
         for (int i = 0; i < objectObjectMap.size(); i++) {
             Map<Object, Object> objectObjectMap1 = objectObjectMap.get(i);
+            Map<String, Object> map = new HashMap<>();
             objectObjectMap1.keySet().forEach(key -> {
                 for (String responseField : keysFromFileByName) {
-                    Map<String, Object> map = new HashMap<>();
                     if (key.equals(responseField)) {
                         map.put(valueOf(key), objectObjectMap1.get(key));
-                        response.add(map);
                     }
                 }
             });
+            response.add(map);
         }
 
         return ResponseEntity.ok(response);
