@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import ru.fors.gosprogramrest.service.UpdateFieldsService;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -28,21 +29,28 @@ public class GosProgramRestController {
     private String fileResponse;
 
     @GetMapping("/v2/{year}")
-    public ResponseEntity<JSONObject> getProgramAndFinanceList(@PathVariable("year") Integer year) throws IOException {
+    public ResponseEntity<List<Map<String, Object>>> getProgramAndFinanceList(@PathVariable("year") Integer year) throws IOException {
 
-        Map<Object, Object> objectObjectMap = updateFieldsService.receivedFields(year);
+        List<Map<Object, Object>> objectObjectMap = updateFieldsService.receivedFields(year);
 
         List<String> keysFromFileByName = updateFieldsService.getKeysFromFileByName(fileResponse);
 
-        Map<String, Object> response = new HashMap<>();
+        List<Map<String, Object>> response = new ArrayList();
 
-        objectObjectMap.keySet().forEach(key -> {
-            for (String responseField : keysFromFileByName) {
-                if (key.equals(responseField)) response.put(valueOf(key), objectObjectMap.get(key));
-            }
-        });
+        for (int i = 0; i < objectObjectMap.size(); i++) {
+            Map<Object, Object> objectObjectMap1 = objectObjectMap.get(i);
+            objectObjectMap1.keySet().forEach(key -> {
+                for (String responseField : keysFromFileByName) {
+                    Map<String, Object> map = new HashMap<>();
+                    if (key.equals(responseField)) {
+                        map.put(valueOf(key), objectObjectMap1.get(key));
+                        response.add(map);
+                    }
+                }
+            });
+        }
 
-        return ResponseEntity.ok(new JSONObject(response));
+        return ResponseEntity.ok(response);
     }
 
 }

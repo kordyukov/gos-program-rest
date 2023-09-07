@@ -99,17 +99,23 @@ public class UpdateFieldsServiceImpl implements UpdateFieldsService {
     }
 
     @Override
-    public Map<Object, Object> receivedFields(Integer year) throws IOException {
+    public List<Map<Object, Object>> receivedFields(Integer year) throws IOException {
         String read = restTemplate.getForObject(url, String.class);
 //        String read = Files.read(new ClassPathResource("/test.json")
 //                .getFile(), StandardCharsets.UTF_8);
 
         JsonNode actualObj = objectMapper.readTree(read);
-        Map<Object, Object> map = new HashMap<>();
-        Map<Integer, String> keyBuilder = new LinkedHashMap<>();
-        traverse(actualObj, 1, map, keyBuilder);
-        saveToFile(map.keySet(), fileRequest);
-        return map;
+        Iterator<JsonNode> elements = actualObj.elements();
+        List<Map<Object, Object>> maps = new ArrayList<>();
+        while (elements.hasNext()) {
+            JsonNode next = elements.next();
+            Map<Object, Object> map = new HashMap<>();
+            Map<Integer, String> keyBuilder = new LinkedHashMap<>();
+            traverse(next, 1, map, keyBuilder);
+            maps.add(map);
+        }
+        saveToFile(maps.get(0).keySet(), fileRequest);
+        return maps;
     }
 
     @Override

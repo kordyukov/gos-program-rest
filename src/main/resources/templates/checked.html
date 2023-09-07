@@ -11,7 +11,7 @@
 <div>
     <form th:action="@{/requests/save}" th:object="${request}" method="post">
         <table>
-            <label th:each="req : ${allKeys}">
+            <label th:each="req : ${allKeys}" >
                     <input type="checkbox" name="requests"
                            th:text="${req.field}"
                            th:value="${req.id}"

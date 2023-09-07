@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 public interface UpdateFieldsService {
-    Map<Object, Object> receivedFields(Integer year) throws IOException;
+    List<Map<Object, Object>>receivedFields(Integer year) throws IOException;
 
     List<Requests> getKeysFromFile() throws IOException;
 
