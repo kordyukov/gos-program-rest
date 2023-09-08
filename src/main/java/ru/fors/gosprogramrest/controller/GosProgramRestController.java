@@ -1,5 +1,7 @@
 package ru.fors.gosprogramrest.controller;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -28,7 +30,7 @@ public class GosProgramRestController {
     private String fileResponse;
 
     @GetMapping("/v2/{year}")
-    public ResponseEntity<List<Map<String, Object>>> getProgramAndFinanceList(@PathVariable("year") Integer year) throws IOException {
+    public ResponseEntity<String> getProgramAndFinanceList(@PathVariable("year") Integer year) throws IOException {
 
         List<Map<Object, Object>> objectObjectMap = updateFieldsService.receivedFields(year);
 
@@ -48,7 +50,9 @@ public class GosProgramRestController {
             response.add(map);
         }
 
-        return ResponseEntity.ok(response);
+        JsonNode jsonNode = new ObjectMapper().convertValue(response.toString(), JsonNode.class);
+
+        return ResponseEntity.ok(jsonNode.asText());
     }
 
 }
